@@ -1,0 +1,37 @@
+{
+  "name": "modulo3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "mocha --recursive ./src/test/*.js",
+    "docs": "aglio -i ./src/docs/documentaion.apib -o ./src/public/index.html"
+  },
+  "devDependencies": {
+    "aglio": "^2.3.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6",
+    "supertest": "^3.3.0",
+    "youch": "^2.0.10"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-validation": "^1.0.2",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.14",
+    "require-dir": "^1.2.0"
+  }
+}

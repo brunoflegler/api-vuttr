@@ -1,0 +1,401 @@
+FORMAT: 1A
+HOST: http://localhost:3000
+
+# VUTTR (Very Useful Tools to Remember)
+The application is a simple repository for managing tools with their respective names, links, descriptions and tags.
+
+# Users [/users]
+
+Create users
+
+## Create users [POST]
+
++ Request Authenticate user
+
+    + Attributes (object)
+        + name : Teste (string, required)
+        + email : email@teste.com (string, required)
+        + password : 123456 (string, required)
+
+    + Headers
+
+            Content-type: application/json
+
+    + body
+
+            {
+                name: "Teste de Usuário",
+                email: "email@teste.com.br",
+                password: "123456"
+            }
+
++ Response 200 (application/json)
+
+    + Attributes (object)
+        + id :  5be23beb16ef3a1f4083d919 (string)
+        + name : Teste (string, required)
+        + email : email@teste.com (string, required)
+        + password : 123456 (string, required)
+        + __v: 0 (number)
+
+    + body
+
+            {
+                _id: "5be23beb16ef3a1f4083d919"
+                name: "Teste de Usuário",
+                email: "email@teste.com.br",
+                password: "123456",
+                __v : 0
+            }
+
+## Delete User [DELETE /users/{id}]
+
++ Parameters
+    + id (string)
+
++ Request Delete a user
+
+    + Headers
+
+            Content-type: application/json
+
++ Response 200 (application/json)
+
+
+# Authetication [/sessions]
+
+Authentication using jwt
+
+## Autheticate user [POST]
+
+
+
++ Request Authenticate user
+
+    + Attributes (object)
+        + email : email@teste.com (string, required)
+        + password : 123456 (string, required)
+
+    + Headers
+
+            Content-type: application/json
+
+    + body
+
+            {
+                email: "email@teste.com.br",
+                password: "123456"
+            }
+
++ Response 200 (application/json)
+
+    + Attributes (object)
+        + token : email@teste.com (string, required)
+
+            Token for authentication
+
+    + body
+
+            {
+                token : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA"
+            }
+
+# Tools [/tools]
+
+## List All Tools [GET]
+
++ Request List all tools
+
+    + Headers
+
+            Content-type: application/json
+            Authorazition: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA
+
++ Response 200 (application/json)
+
+     + body
+
+            [
+                {
+                    _id: "5be23beb16ef3a1f4083d918",
+                    title: "Notion",
+                    link: "https://notion.so",
+                    description: "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
+                    tags: [
+                        "organization",
+                        "planning",
+                        "collaboration",
+                        "writing",
+                        "calendar"
+                    ],
+                    __v: 0
+                },
+                {
+                    _id: "59e23beb16ef3a1f4083d919",
+                    title: "json-server",
+                    link: "https://github.com/typicode/json-server",
+                    description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+                    tags: [
+                        "api",
+                        "json",
+                        "schema",
+                        "node",
+                        "github",
+                        "rest"
+                    ],
+                    __v: 0
+                },
+                {
+                    _id: "5be23beb16ef3a1f4083d920",
+                    title: "fastify",
+                    link: "https://www.fastify.io/",
+                    description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+                    tags: [
+                        "web",
+                        "framework",
+                        "node",
+                        "http2",
+                        "https",
+                        "localhost"
+                    ],
+                    __v: 0
+                }
+            ]
+
+    + Attributes (object)
+        + _id: 5be23beb16ef3a1f4083d918 (string, required)
+        + title: Notion (string, required)
+        + description: All in one tool to organize teams and ideas. (string, required)
+        + link: https://notion.so. (string, required)
+        + tags: ["organization", "node", "webapps"]. (array, required)
+        + __v: 0 (number, required)
+            Versionamento do registro
+
+## List All Tools by tag [GET /tools?tag={query}]
+
++ Parameters
+    + query (string)
+
+
++ Request List all tools
+
+    + Headers
+
+            Content-type: application/json
+            Authorazition: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA
+
+
++ Response 200 (application/json)
+
+    + body
+
+            [
+                {
+                    _id: "5be23beb16ef3a1f4083d919",
+                    title: "json-server",
+                    link: "https://github.com/typicode/json-server",
+                    description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+                    tags: [
+                        "api",
+                        "json",
+                        "schema",
+                        "node",
+                        "github",
+                        "rest"
+                    ]
+                },
+                {
+                    _id: "5be23beb16ef3a1f4083d920",
+                    title: "fastify",
+                    link: "https://www.fastify.io/",
+                    description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+                    tags: [
+                        "web",
+                        "framework",
+                        "node",
+                        "http2",
+                        "https",
+                        "localhost"
+                    ],
+                    __v : 0
+                }
+            ]
+
+## List By id [GET /tools/{id}]
+
++ Parameters
+    + id (string)
+
++ Request List all tools
+
+    + Headers
+
+            Content-type: application/json
+            Authorazition: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA
+
+
++ Response 200 (application/json)
+
+    + body
+
+            {
+                _id: "5be23beb16ef3a1f4083d918",
+                title: "fastify",
+                link: "https://www.fastify.io/",
+                description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+                tags: [
+                    "web",
+                    "framework",
+                    "node",
+                    "http2",
+                    "https",
+                    "localhost"
+                ],
+                __v : 0
+            }
+
+    + Attributes (object)
+        + _id: 5be23beb16ef3a1f4083d918 (string, required)
+        + title: Notion (string, required)
+        + description: All in one tool to organize teams and ideas. (string, required)
+        + link: https://notion.so. (string, required)
+        + tags: ["organization", "node", "webapps"]. (array, required)
+        + __v: 0 (number, required)
+            Versionamento do registro
+
+## Create Tool [POST]
+
+
++ Request Create JSON tool
+
+    + Headers
+
+            Content-type: application/json
+            Authorazition: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA
+
+    + body
+
+            {
+                title: "fastify",
+                link: "https://www.fastify.io/",
+                description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+                tags: [
+                    "web",
+                    "framework",
+                    "node",
+                    "http2",
+                    "https",
+                    "localhost"
+                ]
+            }
+
+    + Attributes (object)
+        + title: Notion (string, required)
+        + description: All in one tool to organize teams and ideas. (string, required)
+        + link: https://notion.so. (string, required)
+        + tags: ["organization", "node", "webapps"]. (array, required)
+
+
++ Response 200 (application/json)
+
+    + body
+
+            {
+                _id: "5be23beb16ef3a1f4083d918",
+                title: "fastify",
+                link: "https://www.fastify.io/",
+                description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+                tags: [
+                    "web",
+                    "framework",
+                    "node",
+                    "http2",
+                    "https",
+                    "localhost"
+                ],
+                __v : 0
+            }
+
+    + Attributes (object)
+        + _id: 5be23beb16ef3a1f4083d918 (string, required)
+        + title: Notion (string, required)
+        + description: All in one tool to organize teams and ideas. (string, required)
+        + link: https://notion.so. (string, required)
+        + tags: ["organization", "node", "webapps"]. (array, required)
+        + __v: 0 (number, required)
+            Versionamento do registro
+
+
+## Update Tool [PUT /tools/{id}]
+
++ parameters
+    + id (string)
+
++ Attributes (object)
+    + _id: 5be23beb16ef3a1f4083d918 (string, required)
+    + title: Notion (string, required)
+    + description: All in one tool to organize teams and ideas. (string, required)
+    + link: https://notion.so. (string, required)
+    + tags: ["organization", "node", "webapps"]. (array, required)
+    + __v: 0 (number, required)
+        Versionamento do registro
+
++ Request Update JSON tool
+
+    + Headers
+
+            Content-type: application/json
+            Authorazition: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA
+
+    + body
+
+            {
+                title: "fastify update"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                _id: "5be23beb16ef3a1f4083d918",
+                title: "fastify update",
+                link: "https://www.fastify.io/",
+                description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+                tags: [
+                    "web",
+                    "framework",
+                    "node",
+                    "http2",
+                    "https",
+                    "localhost"
+                ],
+                __v : 1
+            }
+
+    + Attributes (object)
+        + _id: 5be23beb16ef3a1f4083d918 (string, required)
+        + title: Notion (string, required)
+        + description: All in one tool to organize teams and ideas. (string, required)
+        + link: https://notion.so. (string, required)
+        + tags: ["organization", "node", "webapps"]. (array, required)
+        + __v: 0 (number, required)
+            Versionamento do registro
+
+
+## Delete Tool [DELETE /tools/{id}]
+
++ Parameters
+    + id (string)
+
++ Request Delete a tool
+
+    + Headers
+
+            Content-type: application/json
+            Authorazition: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU1YTRjZTVkZGQ5MDI3ZTBhOTE1NzIiLCJpYXQiOjE1NDE3ODE0NTAwMTksImV4cCI6MTU0MTc4NTA1MDAxOX0.T96lldraeLR27Q8G68ktM-UiE7bNcCCDpg69NbCCykA
+
+
++ Response 200 (application/json)
+
+
