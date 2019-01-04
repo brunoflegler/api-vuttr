@@ -1,4 +1,4 @@
-# VUTTR - Very Useful Tools to Remembeer
+# VUTTR - Very Useful Tools to Remember
 
 The application is a simple repository for managing tools with their respective names, links, descriptions and tags.
 

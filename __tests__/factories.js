@@ -21,7 +21,7 @@ factory.define('User', mongoose.model('User'), {
  * Tool
  */
 
-factory.define('Tool', mongoose.model('User'), {
+factory.define('Tool', mongoose.model('Tool'), {
   title: faker.name.title(),
   description: faker.name.jobDescriptor(),
   link: faker.internet.url(),
