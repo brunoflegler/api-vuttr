@@ -21,8 +21,7 @@
     "jest": "^23.6.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.6",
-    "supertest": "^3.3.0",
-    "youch": "^2.0.10"
+    "supertest": "^3.3.0"
   },
   "dependencies": {
     "bcrypt": "^3.0.2",
@@ -32,6 +31,7 @@
     "joi": "^14.3.0",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.14",
-    "require-dir": "^1.2.0"
+    "require-dir": "^1.2.0",
+    "youch": "^2.0.10"
   }
 }

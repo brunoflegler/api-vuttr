@@ -27,7 +27,7 @@ $ yarn dev
 
 ### Documentation
 
-Follow our use guide for more information. [http://localhost:3000](http://localhost:3000).
+Follow our use guide for more information. [http://api.myhobbies.com;br](http://api.myhobbies.com.br).
 
 ### Using container docker
 
