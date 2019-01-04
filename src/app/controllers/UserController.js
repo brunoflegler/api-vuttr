@@ -5,18 +5,12 @@ class UserController {
     const { email } = req.body
 
     if (await User.findOne({ email })) {
-      return res.status(400).json({ error: 'User already exists' })
+      return res.status(400).json({ error: { message: 'User already exists' } })
     }
 
     const user = await User.create(req.body)
 
     return res.json(user)
-  }
-
-  async destroy (req, res) {
-    await User.findOneAndDelete(req.params.id)
-
-    return res.send()
   }
 }
 

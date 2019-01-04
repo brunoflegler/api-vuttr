@@ -33,7 +33,7 @@ class App {
   }
 
   views () {
-    this.express.use(express.static(path.resolve(__dirname, 'public')))
+    this.express.use(express.static(path.resolve(__dirname, '..', 'public')))
   }
 
   routes () {
@@ -46,11 +46,13 @@ class App {
         return res.status(err.status).json(err)
       }
 
+      /* istanbul ignore if */
       if (process.env.NODE.ENV !== 'production') {
         const youch = new Youch(err)
         return res.json(await youch.toJSON())
       }
 
+      /* istanbul ignore return */
       return res
         .status(err.status || 500)
         .json({ error: 'Internal server error' })

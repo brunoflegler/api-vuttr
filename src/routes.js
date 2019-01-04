@@ -11,7 +11,6 @@ Router.post(
   validate(validators.UserValidator),
   controllers.UserController.store
 )
-Router.delete('/users/:id', controllers.UserController.destroy)
 
 Router.post(
   '/sessions',
