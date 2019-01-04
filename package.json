@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "test": "mocha --recursive ./src/test/*.js",
-    "docs": "aglio -i ./src/docs/documentaion.apib -o ./src/public/index.html"
+    "test": "mocha __tests__/**/*.js --exit",
+    "docs": "aglio -i ./public/docs/documentaion.apib -o ./public/index.html"
   },
   "devDependencies": {
     "aglio": "^2.3.0",
@@ -26,9 +26,13 @@
   },
   "dependencies": {
     "bcrypt": "^3.0.2",
+    "chai-http": "^4.2.1",
     "dotenv": "^6.1.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
     "express": "^4.16.4",
     "express-validation": "^1.0.2",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
     "joi": "^14.3.0",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.14",
