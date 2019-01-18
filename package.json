@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "test": " mocha __tests__/**/*.js --exit",
+    "test": "mocha __tests__/**/*.js --exit",
     "docs": "aglio -i ./public/docs/documentaion.apib -o ./public/index.html"
   },
   "devDependencies": {

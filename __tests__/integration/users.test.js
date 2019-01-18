@@ -6,8 +6,8 @@ const { expect } = chai
 chai.use(chaiHttp)
 
 const server = require('../../src/index')
-const factories = require('../factories')
 const User = mongoose.model('User')
+const factories = require('../factories')
 
 describe('Authenticate a user', () => {
   beforeEach(async () => {

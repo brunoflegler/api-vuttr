@@ -1,30 +1,21 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add text-sumary -D
+  D:\apps\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add mongoose
 
 PATH: 
-  /home/bruno/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+  C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;D:\apps\PuTTY\;D:\apps\apache-maven-3.5.3\bin;C:\Python27;C:\Python27\Lib\site-packages\;C:\Python27\Scripts\;C:\Users\bruno.dalcol\AppData\Local\Continuum\anaconda3;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;D:\apps\PostgreSQL\10\bin\;D:\apps\Microsoft VS Code\bin;C:\Program Files\Java\jdk1.8.0_162\bin;C:\Program Files\Docker Toolbox;D:\apps\Git\cmd;C:\HashiCorp\Vagrant\bin;C:\ProgramData\chocolatey\bin;D:\apps\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\bruno.dalcol\Downloads\osm2pgsql\osm2pgsql\x64;C:\Users\bruno.dalcol\AppData\Local\Continuum\anaconda3;C:\Users\bruno.dalcol\AppData\Local\Continuum\anaconda3\Library\mingw-w64\bin;C:\Users\bruno.dalcol\AppData\Local\Continuum\anaconda3\Library\usr\bin;C:\Users\bruno.dalcol\AppData\Local\Continuum\anaconda3\Library\bin;C:\Users\bruno.dalcol\AppData\Local\Continuum\anaconda3\Scripts;D:\apps\Microsoft VS Code\bin;C:\Program Files\Java\jdk1.8.0_162\bin;C:\Users\bruno.dalcol\AppData\Local\Android\Sdk/platform-tools;C:\Users\bruno.dalcol\AppData\Local\Android\Sdk/tools;D:\apps\redis;C:\Users\bruno.dalcol\AppData\Roaming\npm;C:\Users\bruno.dalcol\AppData\Local\Yarn\bin;C:\Users\bruno.dalcol\Downloads\osm2pgsql\osm2pgsql\x64;
 
 Yarn version: 
   1.12.3
 
 Node version: 
-  10.14.2
+  10.14.0
 
 Platform: 
-  linux x64
+  win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/text-sumary: Not found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:65894:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:129018:22)
-      at Request.emit (events.js:182:13)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:129990:10)
-      at Request.emit (events.js:182:13)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:129912:12)
-      at Object.onceWrapper (events.js:273:13)
-      at IncomingMessage.emit (events.js:187:15)
-      at endReadableNT (_stream_readable.js:1094:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
 
 npm manifest: 
   {
@@ -35,7 +26,7 @@ npm manifest:
     "scripts": {
       "dev": "nodemon src/index.js",
       "start": "node src/index.js",
-      "test": "nyc mocha __tests__/**/*.js --exit",
+      "test": "mocha __tests__/**/*.js --exit",
       "docs": "aglio -i ./public/docs/documentaion.apib -o ./public/index.html"
     },
     "devDependencies": {
@@ -70,7 +61,7 @@ npm manifest:
     "nyc": {
       "reporter": [
         "lcov",
-        "text-sumary",
+        "text-summary",
         "html"
       ],
       "report-dir": "./__tests__/coverage"
