@@ -2,3 +2,4 @@
 /.vscode
 /awscli-bundle
 /.nyc_output
+/__tests__/coverage

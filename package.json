@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "test": "mocha __tests__/**/*.js --exit",
+    "test": "set NODE_ENV=test && nyc mocha __tests__/**/*.test.js  --exit",
     "docs": "aglio -i ./public/docs/documentaion.apib -o ./public/index.html",
     "deploy": "pm2 start src/index.js --name api-vuttr "
   },
@@ -35,7 +35,7 @@
     "express-validation": "^1.0.2",
     "joi": "^14.3.0",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.3.14",
+    "mongoose": "^5.4.5",
     "require-dir": "^1.2.0",
     "youch": "^2.0.10"
   },

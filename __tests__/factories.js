@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const factoryGirl = require('factory-girl')
 const faker = require('faker')
-
 const { factory } = factoryGirl
 
 factory.setAdapter(new factoryGirl.MongooseAdapter())
