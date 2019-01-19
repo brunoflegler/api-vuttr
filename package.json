@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "test": "set NODE_ENV=test && nyc mocha __tests__/**/*.test.js  --exit",
+    "test": "set NODE_ENV=test && mocha __tests__/**/*.test.js  --exit",
     "docs": "aglio -i ./public/docs/documentaion.apib -o ./public/index.html",
     "deploy": "pm2 start src/index.js --name api-vuttr "
   },
