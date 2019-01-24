@@ -13,6 +13,31 @@ $ git clone https://github.com/brunoflegler/api-vuttr.git api-vuttr
 $ cd api-vuttr
 ```
 
+Installation is done using the npm install command:
+
+```sh
+$ npm install
+```
+Or run Yarn install command:
+
+```sh
+$ yarn install
+```
+### Test
+
+To run the test suite, first install the dependencies, then run npm test:
+
+```sh
+$ npm test
+```
+Or run Yarn:
+
+```sh
+$ yarn test
+```
+
+### Run development
+
 Run NPM development:
 
 ```sh
