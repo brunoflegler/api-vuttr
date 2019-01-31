@@ -6,9 +6,9 @@ const controllers = require('./app/controllers')
 const validators = require('./app/validators')
 const authMiddleware = require('./app/middlewares/auth')
 
-Router.get(
-  '/', (req, res) => return res.send({ message: 'Server is running!' })
-)
+Router.get('/', (req, res) => {
+  return res.send({ message: 'Server is running!' })
+})
 
 Router.post(
   '/users',
